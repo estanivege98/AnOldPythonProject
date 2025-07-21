@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarSparrow7
       objectReference: {fileID: 0}
+    - target: {fileID: 4814070135206895109, guid: 65767d57c890045419482f2fc465c2ae, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5297592040960459967, guid: 65767d57c890045419482f2fc465c2ae, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.25
@@ -153,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5297592040960459967, guid: 65767d57c890045419482f2fc465c2ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.7
+      value: 0.89
       objectReference: {fileID: 0}
     - target: {fileID: 5297592040960459967, guid: 65767d57c890045419482f2fc465c2ae, type: 3}
       propertyPath: m_LocalRotation.w
@@ -196,6 +200,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4814070135206895109, guid: 65767d57c890045419482f2fc465c2ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1329361735}
+    - targetCorrespondingSourceObject: {fileID: 4814070135206895109, guid: 65767d57c890045419482f2fc465c2ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1329361736}
   m_SourcePrefab: {fileID: 100100000, guid: 65767d57c890045419482f2fc465c2ae, type: 3}
 --- !u!1 &330585543
 GameObject:
@@ -814,10 +821,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ca8d1aabea8b6429f55c325f56700b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 65
+  velocidad: 40
   suavizado: 20
   xRange: 8
   zRange: 15
+  inclinacionMax: 15
+--- !u!114 &1329361736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329361731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a8509c03634b1de8619ea7f77778c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserPrefab: {fileID: 7707690324840873365, guid: 71127d0796dfa7003b12034af4d7a4ef, type: 3}
+  spawnPoint: {fileID: 1329361734}
+  fireRate: 50
+  timestampshoot: 0.2
 --- !u!1 &1446285052
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,9 +4,11 @@ using UnityEngine.Rendering;
 public class PlayerController : MonoBehaviour
 {
     public float velocidad = 65f;
-    public float suavizado = 6f; // Mayor valor = respuesta más rápida, menor valor = más "resbaladizo"
+    public float suavizado = 6f; // Mayor valor = respuesta mï¿½s rï¿½pida, menor valor = mï¿½s "resbaladizo"
     public float xRange;
     public float zRange;
+    public float inclinacionMax = 30f; // Valor de inclinaciï¿½n para el movimiento
+    
 
     private Vector3 velocidadActual = Vector3.zero;
 
@@ -14,14 +16,20 @@ public class PlayerController : MonoBehaviour
     {
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
-
+        float anguloZ = -inputX * inclinacionMax; // Cï¿½lculo del ï¿½ï¿½ngulo Z basado en inputX
         // Movimiento basado en input
         Vector3 direccionDeseada = new Vector3(inputX, 0f, inputY).normalized;
 
-        // Adaptar la dirección deseada por la rotación -90°
+        // Adaptar la direcciï¿½n deseada por la rotaciï¿½n -90ï¿½
         direccionDeseada = Quaternion.Euler(0, -90, 0) * direccionDeseada;
 
-        // Interpolación hacia la nueva dirección
+        // Crear rotaciÃ³n deseada (asumiendo que no rota en X ni Y)
+        Quaternion rotacionDeseada = Quaternion.Euler(0f, -90f, anguloZ); // -90 en Y mantiene la rotaciÃ³n base
+
+        // Suavizar la rotaciÃ³n con Lerp o Slerp
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotacionDeseada, Time.deltaTime * 5f);
+
+        // Interpolaciï¿½n hacia la nueva direcciï¿½n
         velocidadActual = Vector3.Lerp(velocidadActual, direccionDeseada * velocidad, Time.deltaTime * suavizado);
 
         // Aplicar movimiento
@@ -45,6 +53,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
         }
+        
         
 
     }
