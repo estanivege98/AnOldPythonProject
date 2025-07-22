@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float xRange;
     public float zRange;
     public float inclinacionMax = 30f; // Valor de inclinaci�n para el movimiento
-    
+    public GameObject explosionPrefab;
 
     private Vector3 velocidadActual = Vector3.zero;
 
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
-        
+
 
         if (transform.position.z < -zRange)
         {
@@ -53,9 +53,24 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
         }
-        
-        
 
+
+
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            Debug.Log("Jugador colisionó con un asteroide");
+            // Instancia la explosión de colisión
+            if (explosionPrefab != null)
+            {
+                Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            }
+            // Destruye el jugador
+            Destroy(gameObject);
+        }
     }
 
 }
