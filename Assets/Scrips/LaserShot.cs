@@ -22,14 +22,15 @@ public class LaserShot : MonoBehaviour
 
     void laserShoot()
     {
+        // Usar la rotación del spawnPoint directamente
+        // Si el láser va en dirección incorrecta, ajusta la rotación del spawnPoint en Unity
         Quaternion rotacion = spawnPoint.rotation * Quaternion.Euler(90, 0, 0);
         GameObject laser = Instantiate(laserPrefab, spawnPoint.position, rotacion);
-        Rigidbody rb = laser.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.AddForce(spawnPoint.forward * 1000f); // Ajusta la fuerza según sea necesario
-        }
-        Destroy(laser, 2f); // Destruye el láser después de 2 segundos
+        
+        // Debug para verificar la dirección
+        Debug.Log($"Láser disparado en dirección: {laser.transform.up}");
+        
+        Destroy(laser, 3f);
         Debug.Log("Disparo realizado");
     }
 }
