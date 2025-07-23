@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ShootBehaviour : MonoBehaviour
 {
@@ -55,7 +57,7 @@ public class ShootBehaviour : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log($"Láser colisionó con: {collision.gameObject.name} - Tag: {collision.gameObject.tag}");
-        
+
         // Si colisiona con un asteroide (tag "Asteroid"), destruye ambos
         if (collision.gameObject.CompareTag("Asteroid"))
         {
@@ -67,6 +69,7 @@ public class ShootBehaviour : MonoBehaviour
             Debug.Log("Asteroide destruido por el disparo");
             Destroy(collision.gameObject); // Destruye el asteroide
             Destroy(gameObject); // Destruye el láser
+            ScoreManager.instance.AddScore(1); // Añade puntuación
         }
     }
     
