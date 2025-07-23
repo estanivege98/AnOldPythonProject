@@ -11,7 +11,7 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
-        entries = FileHandler.LoadFromJSON<InputEntry>(fileName);
+        entries = FileHandler.LoadListFromJSON<InputEntry>(fileName);
         Debug.Log($"Entradas cargadas desde archivo: {entries.Count}");
         
         // Log de cada entrada cargada para debugging

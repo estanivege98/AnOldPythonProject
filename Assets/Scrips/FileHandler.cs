@@ -11,8 +11,14 @@ public static class FileHandler
         string content = JsonHelper.ToJson<T>(toSave.ToArray(), true);
         WriteToFile(GetPath(fileName), content);
     }
+    public static void SaveToJSON<T>(T toSave, string fileName)
+    {
+        Debug.Log("Guardando a JSON: " + fileName + " en el directorio: " + GetPath(fileName));
+        string content = JsonUtility.ToJson(toSave, true);
+        WriteToFile(GetPath(fileName), content);
+    }
 
-    public static List<T> LoadFromJSON<T>(string fileName)
+    public static List<T> LoadListFromJSON<T>(string fileName)
     {
         string content = ReadFromFile(GetPath(fileName));
         if (string.IsNullOrEmpty(content) || content == "{}")
@@ -23,6 +29,17 @@ public static class FileHandler
 
         List<T> res = JsonHelper.FromJson<T>(content).ToList();
         return res;
+    }
+
+    public static T LoadFromJSON<T>(string fileName)
+    {
+        string content = ReadFromFile(GetPath(fileName));
+        if (string.IsNullOrEmpty(content) || content == "{}")
+        {
+            return default(T);
+        }
+
+        return JsonUtility.FromJson<T>(content);
     }
 
     private static string GetPath(string fileName)

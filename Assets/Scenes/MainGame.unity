@@ -2686,6 +2686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 825794435}
   highScoreText: {fileID: 2089063125}
+  fileName: puntaje.json
 --- !u!114 &1384264902
 MonoBehaviour:
   m_ObjectHideFlags: 0
