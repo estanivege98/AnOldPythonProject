@@ -15,8 +15,9 @@ public class ScoreManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         highScore = PlayerPrefs.GetInt("HighScore", 0);
-        scoreText.text = "Score: " + score.ToString(); 
+        scoreText.text = "Score: " + score.ToString();
         highScoreText.text = "High Score: " + highScore.ToString();
     }
 
@@ -33,5 +34,14 @@ public class ScoreManager : MonoBehaviour
             highScoreText.text = "High Score: " + highScore.ToString(); // Actualiza el texto de la puntuación más alta
             PlayerPrefs.SetInt("HighScore", highScore); // Guarda la nueva puntuación más alta
         }
+    }
+
+    public int GetScore()
+    {
+        return score; // Devuelve la puntuación actual
+    }
+    public int GetHighScore()
+    {
+        return highScore; // Devuelve la puntuación más alta
     }
 }
