@@ -58,19 +58,31 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private bool isDead = false; // Variable para evitar múltiples muertes
+
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Asteroid"))
+        if (!isDead && collision.gameObject.CompareTag("Asteroid"))
         {
             Debug.Log("Jugador colisionó con un asteroide");
+            isDead = true; // Marca como muerto para evitar múltiples llamadas
+            
             // Instancia la explosión de colisión
             if (explosionPrefab != null)
             {
                 Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             }
-            // Destruye el jugador
-            Destroy(gameObject);
+            PlayerDies(); // Llama al método para manejar la muerte del jugador
         }
+    }
+
+    private void PlayerDies()
+    {
+        if (LevelManager.instance != null)
+        {
+            LevelManager.instance.GameOver();
+        }
+        gameObject.SetActive(false);     // Desactiva el jugador
     }
 
 }
