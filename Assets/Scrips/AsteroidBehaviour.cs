@@ -19,7 +19,7 @@ public class AsteroidBehaviour : MonoBehaviour
         transform.position += Vector3.right * speed * Time.deltaTime;
 
         // Rota el asteroide en su propio eje para efecto visual
-        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.Self);
     }
         
     
