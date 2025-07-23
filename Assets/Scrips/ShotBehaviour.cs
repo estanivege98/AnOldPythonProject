@@ -18,12 +18,12 @@ public class ShootBehaviour : MonoBehaviour
         // Verificar componentes necesarios
         if (rb == null)
         {
-            Debug.LogWarning($"El láser {gameObject.name} necesita un Rigidbody para detectar colisiones!");
+            //Debug.LogWarning($"El láser {gameObject.name} necesita un Rigidbody para detectar colisiones!");
         }
         
         if (GetComponent<Collider>() == null)
         {
-            Debug.LogWarning($"El láser {gameObject.name} necesita un Collider para detectar colisiones!");
+            //Debug.LogWarning($"El láser {gameObject.name} necesita un Collider para detectar colisiones!");
         }
         
         // Configurar el Rigidbody para movimiento estable
@@ -66,7 +66,6 @@ public class ShootBehaviour : MonoBehaviour
                 GameObject explosion = Instantiate(collisionExplosion, transform.position, transform.rotation);
                 Destroy(explosion, 2f);
             }
-            Debug.Log("Asteroide destruido por el disparo");
             Destroy(collision.gameObject); // Destruye el asteroide
             Destroy(gameObject); // Destruye el láser
             ScoreManager.instance.AddScore(1); // Añade puntuación

@@ -26,12 +26,11 @@ public class AsteroidBehaviour : MonoBehaviour
     // Detecta colisiones con otros objetos
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"Asteroide colisionó con: {collision.gameObject.name} - Tag: {collision.gameObject.tag}");
+        
 
         // Verifica si el objeto que colisionó tiene el tag "Laser"
         if (collision.gameObject.CompareTag("Laser"))
         {
-            Debug.Log("Asteroide detectó colisión con Laser");
             // Destruye el asteroide
             Destroy(gameObject);
             // Instancia la explosión de colisión

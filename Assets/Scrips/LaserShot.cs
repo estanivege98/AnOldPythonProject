@@ -27,10 +27,8 @@ public class LaserShot : MonoBehaviour
         Quaternion rotacion = spawnPoint.rotation * Quaternion.Euler(90, 0, 0);
         GameObject laser = Instantiate(laserPrefab, spawnPoint.position, rotacion);
         
-        // Debug para verificar la dirección
-        Debug.Log($"Láser disparado en dirección: {laser.transform.up}");
         
         Destroy(laser, 3f);
-        Debug.Log("Disparo realizado");
+        
     }
 }

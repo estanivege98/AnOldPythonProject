@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!isDead && collision.gameObject.CompareTag("Asteroid"))
         {
-            Debug.Log("Jugador colisionó con un asteroide");
             isDead = true; // Marca como muerto para evitar múltiples llamadas
             
             // Instancia la explosión de colisión
