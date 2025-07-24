@@ -12,7 +12,7 @@ Realmente es muy sencillo: manejas una nave la cual debe disparar a los asteroid
 ## Cosas a implementar
 Esto se puede solucionar en unas horas, pero aun asi lo listo:
 - [x] Cada vez que se le erra/esquiva a un asteroide, se resta un punto
-- [ ] Un menu de pausa, que incluya un boton para salir al menun
+- [ ] Un menu de pausa, que incluya un boton para salir al menu
 - [ ] Sonido, Musica
 - [ ] Una mejor UI (esto puede llevar tiempo, se buscara una mejor interfaz luego de arreglar los otros problemas)
 
