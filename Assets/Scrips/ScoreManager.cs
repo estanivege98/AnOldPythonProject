@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     public Text highScoreText; // Referencia al componente Text para mostrar la puntuación más alta
     public static ScoreManager instance; // Instancia estática para acceso global
     [SerializeField] string fileName; // Nombre del archivo donde se guardan los puntajes
-    
+
     int score = 0; // Puntuación actual del jugador
     int highScore = 0; // Puntuación más alta guardada
 
@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
     {
         // Cargar las entradas desde el archivo JSON
         List<InputEntry> entries = FileHandler.LoadListFromJSON<InputEntry>(fileName);
-        
+
         if (entries.Count > 0)
         {
             // Obtener el puntaje más alto del archivo
@@ -78,7 +78,7 @@ public class ScoreManager : MonoBehaviour
     {
         return score; // Devuelve la puntuación actual
     }
-    
+
     public int GetHighScore()
     {
         return highScore; // Devuelve la puntuación más alta
@@ -105,5 +105,19 @@ public class ScoreManager : MonoBehaviour
         fileName = newFileName;
         Debug.Log($"Archivo de scores cambiado a: {fileName}");
         RefreshHighScore(); // Recargar el high score del nuevo archivo
+    }
+    
+    public void RemoveScore()
+    {
+        if (score > 0 && GameObject.Find("Player") != null)
+        {
+            score--; // Decrementa la puntuación actual
+            UpdateScoreDisplay(); // Actualiza el texto de la puntuación
+            Debug.Log($"Score decremented: {score}");
+        }
+        else
+        {
+            Debug.LogWarning("Score is already at 0, cannot decrement.");
+        }
     }
 }

@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
         if (!isDead && collision.gameObject.CompareTag("Asteroid"))
         {
             isDead = true; // Marca como muerto para evitar múltiples llamadas
-            
+
             // Instancia la explosión de colisión
             if (explosionPrefab != null)
             {
@@ -82,6 +82,11 @@ public class PlayerController : MonoBehaviour
             LevelManager.instance.GameOver();
         }
         gameObject.SetActive(false);     // Desactiva el jugador
+    }
+
+    public bool IsDead()
+    {
+        return isDead; // Devuelve el estado de muerte del jugador
     }
 
 }

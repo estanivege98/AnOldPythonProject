@@ -21,12 +21,12 @@ public class AsteroidBehaviour : MonoBehaviour
         // Rota el asteroide en su propio eje para efecto visual
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.Self);
     }
-        
-    
+
+
     // Detecta colisiones con otros objetos
     void OnCollisionEnter(Collision collision)
     {
-        
+
 
         // Verifica si el objeto que colisionó tiene el tag "Laser"
         if (collision.gameObject.CompareTag("Laser"))
@@ -53,5 +53,11 @@ public class AsteroidBehaviour : MonoBehaviour
             Destroy(collision.gameObject);
         }
         */
+        if (collision.gameObject.CompareTag("Boundary") )
+        {
+            // Destruye el asteroide si colisiona con el límite
+            Destroy(gameObject);
+            ScoreManager.instance.RemoveScore();
+        }
     }
 }
