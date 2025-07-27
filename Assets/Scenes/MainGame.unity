@@ -2810,6 +2810,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 292162335}
   fireRate: 50
   timestampshoot: 0.2
+  laserSound: {fileID: 8300000, guid: c4d2f5461adbafbbbb72bceac37a08d3, type: 3}
 --- !u!1 &1384264900
 GameObject:
   m_ObjectHideFlags: 0
@@ -3389,6 +3390,51 @@ Transform:
   - {fileID: 1329361734}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2063819277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2063819279}
+  - component: {fileID: 2063819278}
+  m_Layer: 0
+  m_Name: SoundFxManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2063819278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063819277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12cad8ef5d1a4b3e1b1e3cfc375aad8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFxSource: {fileID: 4975099716172079634, guid: 769097f9cedd72a48a06a91ef727a97d, type: 3}
+--- !u!4 &2063819279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063819277}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 68.0983, y: -395.0145, z: -366.64456}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2086336932
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,6 +3712,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 391304584}
+  - {fileID: 2063819279}
   - {fileID: 330585546}
   - {fileID: 832575519}
   - {fileID: 1384264905}
