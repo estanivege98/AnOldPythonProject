@@ -3420,6 +3420,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundFxSource: {fileID: 4975099716172079634, guid: 769097f9cedd72a48a06a91ef727a97d, type: 3}
+  clickDownSound: {fileID: 0}
+  clickUpSound: {fileID: 0}
+  hoverSound: {fileID: 0}
+  menuSoundVolume: 0.5
 --- !u!4 &2063819279
 Transform:
   m_ObjectHideFlags: 0
