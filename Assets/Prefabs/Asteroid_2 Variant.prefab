@@ -112,6 +112,7 @@ MonoBehaviour:
   speed: 0
   rotationSpeed: 10
   collisionExplosion: {fileID: 3352391191284423565, guid: 9571e0e1b1e65834cbba759493c171d3, type: 3}
+  explosionSound: {fileID: 8300000, guid: 6a54136b15e8b387585191dde5cf25ce, type: 3}
 --- !u!54 &8991253307454264101
 Rigidbody:
   m_ObjectHideFlags: 0
