@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject explosionPrefab;
 
     private Vector3 velocidadActual = Vector3.zero;
+    [SerializeField] private AudioClip explosionSound; // Sonido de explosión
 
     void Update()
     {
@@ -69,6 +70,7 @@ public class PlayerController : MonoBehaviour
             // Instancia la explosión de colisión
             if (explosionPrefab != null)
             {
+                SoundFxManager.instance.PlaySoundFXClip(explosionSound, transform, 1f);
                 Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             }
             PlayerDies(); // Llama al método para manejar la muerte del jugador

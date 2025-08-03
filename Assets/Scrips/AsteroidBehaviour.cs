@@ -6,6 +6,7 @@ public class AsteroidBehaviour : MonoBehaviour
     public float rotationSpeed = 10f; // Velocidad de rotación del asteroide
                                       // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject collisionExplosion;
+    [SerializeField] private AudioClip explosionSound; // Sonido de colisión
     void Start()
     {
         // Inicializa la velocidad del asteroide
@@ -36,6 +37,7 @@ public class AsteroidBehaviour : MonoBehaviour
             // Instancia la explosión de colisión
             if (collisionExplosion != null)
             {
+                SoundFxManager.instance.PlaySoundFXClip(explosionSound, transform, 0.5f);
                 Instantiate(collisionExplosion, transform.position, Quaternion.identity);
             }
             // Opcionalmente, también destruye el láser

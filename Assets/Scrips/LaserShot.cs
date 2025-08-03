@@ -24,7 +24,7 @@ public class LaserShot : MonoBehaviour
     {
         // Usar la rotación del spawnPoint directamente
         // Si el láser va en dirección incorrecta, ajusta la rotación del spawnPoint en Unity
-        SoundFxManager.instance.PlaySoundFXClip(laserSound, transform, 0.5f);
+        SoundFxManager.instance.PlaySoundFXClip(laserSound, transform, 0.3f);
         Quaternion rotacion = spawnPoint.rotation * Quaternion.Euler(90, 0, 0);
         GameObject laser = Instantiate(laserPrefab, spawnPoint.position, rotacion);
         
